@@ -1,0 +1,66 @@
+public class Main {
+    public static void main(String[] args) {
+        int[][] matrix = { 
+            {1, 2, 3}, 
+            {4, 5, 6}, 
+            {7, 8, 9} 
+        };
+        System.out.println("Original Matrix:");
+        for (int i = 0; i < 3; i++) { 
+            for (int j = 0; j < 3; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+        int[][] transposed = new int[3][3]; 
+        for (int i = 0; i < 3; i++) { 
+            for (int j = 0; j < 3; j++) {
+                transposed[i][j] = matrix[j][i]; 
+            }
+        }
+        System.out.println("\nTransposed Matrix:");
+        for (int i = 0; i < 3; i++) { 
+            for (int j = 0; j < 3; j++) {
+                System.out.print(transposed[i][j] + " ");
+            }
+            System.out.println();
+        }
+        for (int i = 0; i < 3; i++) {
+            int temp = transposed[i][0]; 
+            transposed[i][0] = transposed[i][2];
+            transposed[i][2] = temp; 
+        }
+        System.out.println("\nMatrix After Swapping First and Last Columns:");
+        for (int i = 0; i < 3; i++) { 
+            for (int j = 0; j < 3; j++) {
+                System.out.print(transposed[i][j] + " ");
+            }
+            System.out.println();
+        }
+        int[][] finalTranspose = new int[3][3]; 
+        for (int i = 0; i < 3; i++) { 
+            for (int j = 0; j < 3; j++) {
+                finalTranspose[i][j] = transposed[j][i]; 
+            }
+        }
+        System.out.println("\nFinal Transposed Matrix:");
+        for (int i = 0; i < 3; i++) { 
+            for (int j = 0; j < 3; j++) {
+                System.out.print(finalTranspose[i][j] + " ");
+            }
+            System.out.println();
+        }
+        for (int j = 0; j < 3; j++) {
+            int temp = finalTranspose[0][j];  
+            finalTranspose[0][j] = finalTranspose[2][j]; 
+            finalTranspose[2][j] = temp;
+        }
+        System.out.println("\nMatrix After Swapping First and Last Rows:");
+        for (int i = 0; i < 3; i++) { 
+            for (int j = 0; j < 3; j++) {
+                System.out.print(finalTranspose[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
